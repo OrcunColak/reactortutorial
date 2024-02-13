@@ -8,7 +8,6 @@ public class PubSubTest {
 
 
         EventSubscriber eventSubscriber2 = new EventSubscriber("subscriber-2", publisher.getEvents());
-        publisher.publishEvent("1");
         publisher.publishEvent("2");
 
     }
