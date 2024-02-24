@@ -9,32 +9,29 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Emit a new item, this item will be added to list by flux
+ * Emit all items initially and then emit the new item
  */
 @Slf4j
-public class SinksTest {
+public class FluxTest {
 
     private static final List<ToDo> toDoList = new ArrayList<>(List.of(
             new ToDo("1", "title1"),
             new ToDo("2", "title2")
     ));
 
-
     public static void main(String[] args) throws InterruptedException {
         Sinks.Many<ToDo> todoSink = Sinks.many().replay().all();
         Flux<ToDo> flux = todoSink.asFlux();
 
-        flux
-                //  allowing multiple subscribers to share the emissions
-                .share()
-                // Subscribe to the flux and add emitted todos to the list
-                .subscribe(toDoList::add);
+        // Subscribe to the Flux and print the received elements
+        flux.subscribe(System.out::println);
 
+        toDoList.forEach(todoSink::tryEmitNext);
+
+        // Simulate adding a new item
         ToDo newTodo = new ToDo("3", "title3");
+        toDoList.add(newTodo);
         todoSink.tryEmitNext(newTodo);
-
-        // Print the updated list
-        log.info("Updated ToDo List: " + toDoList);
 
         TimeUnit.SECONDS.sleep(2);
     }
