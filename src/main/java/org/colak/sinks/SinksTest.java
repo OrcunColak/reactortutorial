@@ -21,6 +21,7 @@ public class SinksTest {
 
 
     public static void main(String[] args) throws InterruptedException {
+        // replay a specified history size of pushed data to new subscribers then continue pushing new data live.
         Sinks.Many<ToDo> todoSink = Sinks.many().replay().all();
         Flux<ToDo> flux = todoSink.asFlux();
 
@@ -34,7 +35,7 @@ public class SinksTest {
         todoSink.tryEmitNext(newTodo);
 
         // Print the updated list
-        log.info("Updated ToDo List: " + toDoList);
+        log.info("Updated ToDo List: {}", toDoList);
 
         TimeUnit.SECONDS.sleep(2);
     }

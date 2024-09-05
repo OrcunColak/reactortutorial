@@ -20,6 +20,7 @@ public class FluxTest {
     ));
 
     public static void main(String[] args) throws InterruptedException {
+        // replay a specified history size of pushed data to new subscribers then continue pushing new data live.
         Sinks.Many<ToDo> todoSink = Sinks.many().replay().all();
         Flux<ToDo> flux = todoSink.asFlux();
 
