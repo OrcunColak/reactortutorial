@@ -1,16 +1,16 @@
-package org.colak.flux.filterwhen;
+package org.colak.flux.merge;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
+// Flux.merge and Flux.concat are similar
 @Slf4j
-class FilterWhenTest {
+class MergeTest {
 
     public static void main(String[] args) {
-        Flux<String> filteredFlux = Flux.just("one", "two", "three")
-                .filter(s -> s.length() > 3);
+        Flux<Integer> mergedFlux = Flux.merge(Flux.just(1, 2, 3), Flux.just(4, 5, 6));
 
-        filteredFlux.subscribe(
+        mergedFlux.subscribe(
                 result -> log.info("Result: {}", result),
                 error -> log.error("Error: {}", error.getMessage())
         );

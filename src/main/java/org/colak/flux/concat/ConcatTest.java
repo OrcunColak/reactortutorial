@@ -2,6 +2,7 @@ package org.colak.flux.concat;
 
 import reactor.core.publisher.Flux;
 
+// Flux.merge and Flux.concat are similar
 public class ConcatTest {
 
     public static void main(String[] args) {
