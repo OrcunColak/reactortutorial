@@ -3,9 +3,8 @@ package org.colak.mono.onerrorresume;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
-/**
- * onErrorResume provides a fallback value
- */
+
+// onErrorResume provides a fallback value
 @Slf4j
 class OnErrorResumeTest {
 
@@ -19,6 +18,7 @@ class OnErrorResumeTest {
                 throwable -> Mono.just("Fallback Value"));
 
         // Subscribing to the resultMono
-        resultMono.subscribe(value -> log.info("Result: " + value), throwable -> log.error("Error in subscription: " + throwable.getMessage()));
+        resultMono.subscribe(value -> log.info("Result: {}", value),
+                throwable -> log.error("Error in subscription: {}", throwable.getMessage()));
     }
 }
