@@ -1,4 +1,4 @@
-package org.colak.flux.timeout;
+package org.colak.flux.interval;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -6,16 +6,15 @@ import reactor.core.publisher.Flux;
 import java.time.Duration;
 
 @Slf4j
-class TimeoutTest {
+class IntervalTest {
 
     public static void main(String[] args) {
-
         // Example of Flux generating values every second
-        Flux<Long> timedFlux = Flux.interval(Duration.ofSeconds(1))
-                .take(10) // Limit to the first 5 elements
-                .timeout(Duration.ofMillis(500));
+        Flux<Long> flux = Flux.interval(Duration.ofSeconds(1))
+                .take(5);// Limit to the first 5 elements
 
-        timedFlux.subscribe(
+
+        flux.subscribe(
                 result -> log.info("Result: {}", result),
                 error -> log.error("Error: {}", error.getMessage())
         );
