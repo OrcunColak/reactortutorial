@@ -1,26 +1,21 @@
 package org.colak.mono.zipwith;
 
-import lombok.extern.slf4j.Slf4j;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
 
-/**
- * Combine mono with flux
- */
-@Slf4j
+// Mono.zipWith is a shorthand for zipping two Mono instances together.
+// It functions similarly to Mono.zip, but instead of being a static method, it’s an instance method that you call on one Mono to zip it with another.
+
+// If any of the combined Monos encounter an error, the resulting Mono will emit an error, making error management straightforward.
 class ZipWithTest {
 
     public static void main(String[] args) {
-        // Create a Mono emitting a single value
-        Mono<String> mono = Mono.just("MonoValue");
 
-        // Create a Flux emitting multiple values
-        Flux<Integer> flux = Flux.range(1, 5);
+        Mono<String> mono1 = Mono.just("Spring");
+        Mono<String> mono2 = Mono.just("WebFlux");
 
-        // Use zipWith to combine the Mono with the Flux
-        Mono<String> combinedFlux = mono.zipWith(flux.collectList(), (monoValue, fluxValue) -> monoValue + " " + fluxValue);
-
-        // Subscribe to the combinedFlux and print the emitted elements
-        combinedFlux.subscribe(log::info);
+        Mono<Tuple2<String, String>> zippedMono = mono1.zipWith(mono2);
+        // Spring WebFlux
+        zippedMono.subscribe(tuple -> System.out.println(tuple.getT1() + " " + tuple.getT2()));
     }
 }

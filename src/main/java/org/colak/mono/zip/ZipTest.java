@@ -3,6 +3,7 @@ package org.colak.mono.zip;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
+// The zip method combines multiple Mono instances into a single Mono, emitting a Tuple containing the values emitted by the individual Monos
 @Slf4j
 class ZipTest {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ class ZipTest {
                 .map(tuple -> tuple.getT1() + " " + tuple.getT2());
 
         // Subscribe to the zipped Mono and print the emitted value
+        // Hello World
         zippedMono.subscribe(log::info);
     }
 }
