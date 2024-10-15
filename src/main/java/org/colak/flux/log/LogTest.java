@@ -6,7 +6,7 @@ import reactor.core.publisher.Flux;
 @Slf4j
 class LogTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Flux<String> debuggedFlux = Flux.just("A", "B", "C")
                 .log();
 

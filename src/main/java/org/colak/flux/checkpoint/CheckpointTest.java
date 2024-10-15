@@ -6,7 +6,7 @@ import reactor.core.publisher.Flux;
 @Slf4j
 class CheckpointTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Flux<Integer> checkpointedFlux = Flux.just("1", "2", "a", "3")
                 .map(Integer::parseInt)
                 .checkpoint("Parsing Numbers");

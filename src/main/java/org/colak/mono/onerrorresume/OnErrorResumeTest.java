@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 class OnErrorResumeTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         // Simulating a Mono that may encounter an error
         Mono<String> errorMono = Mono.error(new RuntimeException("Simulated error"));
 

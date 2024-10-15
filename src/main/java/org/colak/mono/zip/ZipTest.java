@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 // The zip method combines multiple Mono instances into a single Mono, emitting a Tuple containing the values emitted by the individual Monos
 @Slf4j
 class ZipTest {
-    public static void main(String[] args) {
+    public static void main() {
         // Create two Monos emitting strings
         Mono<String> mono1 = Mono.just("Hello");
         Mono<String> mono2 = Mono.just("World");

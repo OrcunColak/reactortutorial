@@ -9,7 +9,7 @@ import reactor.util.function.Tuple2;
 // If any of the combined Monos encounter an error, the resulting Mono will emit an error, making error management straightforward.
 class ZipWithTest {
 
-    public static void main(String[] args) {
+    public static void main() {
 
         Mono<String> mono1 = Mono.just("Spring");
         Mono<String> mono2 = Mono.just("WebFlux");

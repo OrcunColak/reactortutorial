@@ -9,7 +9,7 @@ import java.util.List;
 @Slf4j
 class FromIterableTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         // Create a list of integers
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 

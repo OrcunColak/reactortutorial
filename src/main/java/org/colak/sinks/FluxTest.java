@@ -12,14 +12,14 @@ import java.util.concurrent.TimeUnit;
  * Emit all items initially and then emit the new item
  */
 @Slf4j
-public class FluxTest {
+class FluxTest {
 
     private static final List<ToDo> toDoList = new ArrayList<>(List.of(
             new ToDo("1", "title1"),
             new ToDo("2", "title2")
     ));
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main() throws InterruptedException {
         // replay a specified history size of pushed data to new subscribers then continue pushing new data live.
         Sinks.Many<ToDo> todoSink = Sinks.many().replay().all();
         Flux<ToDo> flux = todoSink.asFlux();

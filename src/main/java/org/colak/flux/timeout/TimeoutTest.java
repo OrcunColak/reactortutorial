@@ -8,7 +8,7 @@ import java.time.Duration;
 @Slf4j
 class TimeoutTest {
 
-    public static void main(String[] args) {
+    public static void main() {
 
         // Example of Flux generating values every second
         Flux<Long> timedFlux = Flux.interval(Duration.ofSeconds(1))

@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 class FilterWhenTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Mono<String> filteredMono = Mono.just("hello")
                 .filterWhen(value -> Mono.just(value.startsWith("h")));
 

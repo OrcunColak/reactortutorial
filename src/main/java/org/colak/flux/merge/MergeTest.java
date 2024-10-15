@@ -7,7 +7,7 @@ import reactor.core.publisher.Flux;
 @Slf4j
 class MergeTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Flux<Integer> mergedFlux = Flux.merge(Flux.just(1, 2, 3), Flux.just(4, 5, 6));
 
         mergedFlux.subscribe(

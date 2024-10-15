@@ -8,7 +8,7 @@ import java.time.Duration;
 @Slf4j
 class IntervalTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         // Example of Flux generating values every second
         Flux<Long> flux = Flux.interval(Duration.ofSeconds(1))
                 .take(5);// Limit to the first 5 elements

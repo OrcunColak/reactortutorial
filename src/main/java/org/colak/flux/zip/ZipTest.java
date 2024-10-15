@@ -2,9 +2,9 @@ package org.colak.flux.zip;
 
 import reactor.core.publisher.Flux;
 
-public class ZipTest {
+class ZipTest {
 
-    public static void main(String[] args) {
+    public static void main() {
 
         zipTwoStreams();
         zipFourStreams();

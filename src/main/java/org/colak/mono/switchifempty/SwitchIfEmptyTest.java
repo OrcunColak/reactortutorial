@@ -5,7 +5,7 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 class SwitchIfEmptyTest {
-    public static void main(String[] args) {
+    public static void main() {
         // Create an empty Mono
         Mono.empty()
                 // Use switchIfEmpty to emit a default value if the source Mono is empty

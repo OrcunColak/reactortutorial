@@ -8,7 +8,7 @@ import reactor.util.function.Tuple2;
 // Essentially, zipWhen allows you to trigger a second Mono based on the result of the first Mono.
 class ZipWhenTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Mono<String> userMono = Mono.just("John");
 
         Mono<Tuple2<String, String>> zippedMono = userMono.zipWhen(ZipWhenTest::getUserAddress);

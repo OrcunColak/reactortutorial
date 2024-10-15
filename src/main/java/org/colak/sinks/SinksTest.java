@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * Emit a new item, this item will be added to list by flux
  */
 @Slf4j
-public class SinksTest {
+class SinksTest {
 
     private static final List<ToDo> toDoList = new ArrayList<>(List.of(
             new ToDo("1", "title1"),
@@ -20,7 +20,7 @@ public class SinksTest {
     ));
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main() throws InterruptedException {
         // replay a specified history size of pushed data to new subscribers then continue pushing new data live.
         Sinks.Many<ToDo> todoSink = Sinks.many().replay().all();
         Flux<ToDo> flux = todoSink.asFlux();

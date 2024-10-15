@@ -7,9 +7,9 @@ import reactor.core.scheduler.Schedulers;
 import java.time.Duration;
 
 @Slf4j
-public class BackPressureOnDropExample {
+class BackPressureOnDropExample {
 
-    public static void main(String[] args) throws Exception {
+    public static void main() throws Exception {
         Flux<Integer> flux = Flux.range(1, 100)
                 .delayElements(Duration.ofMillis(1))
                 .doOnNext(i -> log.info("Produced: " + i))

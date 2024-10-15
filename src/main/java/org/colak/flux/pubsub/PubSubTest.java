@@ -1,8 +1,8 @@
 package org.colak.flux.pubsub;
 
-public class PubSubTest {
+class PubSubTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         EventPublisher publisher = new EventPublisher();
         EventSubscriber eventSubscriber1 = new EventSubscriber("subscriber-1", publisher.getEvents());
 

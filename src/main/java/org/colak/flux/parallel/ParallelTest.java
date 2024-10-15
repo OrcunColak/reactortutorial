@@ -4,7 +4,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
 class ParallelTest {
-    public static void main(String[] args) {
+
+    public static void main() {
         // Create a Flux emitting integers from 1 to 10
         Flux<Integer> sourceFlux = Flux.range(1, 10);
 

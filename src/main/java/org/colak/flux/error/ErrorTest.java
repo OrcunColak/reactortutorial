@@ -6,7 +6,7 @@ import reactor.core.publisher.Flux;
 @Slf4j
 class ErrorTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Flux<String> errorFlux = Flux.error(new IndexOutOfBoundsException("Simulated error"));
 
         errorFlux.subscribe(

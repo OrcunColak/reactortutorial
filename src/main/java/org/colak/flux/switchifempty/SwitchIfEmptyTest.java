@@ -6,7 +6,7 @@ import reactor.core.publisher.Flux;
 @Slf4j
 class SwitchIfEmptyTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Flux<String> defaultFlux = Flux.<String>empty()
                 .switchIfEmpty(Flux.just("default"));
 

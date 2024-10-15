@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 class ZipWithFluxTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         // Create a Mono emitting a single value
         Mono<String> mono = Mono.just("MonoValue");
 

@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 @Slf4j
 class WindowTest {
 
-    public static void main(String[] args) {
+    public static void main() {
         Flux.range(1, 10)
                 .window(3)
                 .subscribe(subFlux -> {

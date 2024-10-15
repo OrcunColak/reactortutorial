@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 class TimeoutTest {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main() throws InterruptedException {
         // Simulating a Mono that takes longer than the timeout
         Mono<String> delayedMono = Mono.delay(Duration.ofSeconds(5))
                 .map(duration -> "Delayed Result");
