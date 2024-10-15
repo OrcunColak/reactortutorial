@@ -1,4 +1,4 @@
-package org.colak.flux.backpressure;
+package org.colak.flux.backpressure.buffer;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -7,13 +7,13 @@ import reactor.core.scheduler.Schedulers;
 import java.time.Duration;
 
 @Slf4j
-class BackPressureOnDropExample {
+class BackPressureBufferExample {
 
     public static void main() throws Exception {
         Flux<Integer> flux = Flux.range(1, 100)
                 .delayElements(Duration.ofMillis(1))
                 .doOnNext(i -> log.info("Produced: " + i))
-                .onBackpressureDrop(item -> log.info("Dropped: " + item));
+                .onBackpressureBuffer(10, dropped -> log.info("Buffered, dropped: " + dropped));
 
         flux.subscribeOn(Schedulers.boundedElastic())
                 .subscribe(

@@ -1,4 +1,4 @@
-package org.colak.flux.backpressure;
+package org.colak.flux.backpressure.latest;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
